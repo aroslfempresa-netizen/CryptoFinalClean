@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import { cookies } from "next/headers";
 
 const JWT_SECRET = process.env.JWT_SECRET || "brazacripto_super_secret_key_2026";
 
@@ -37,10 +36,8 @@ export function verifyToken(token: string): UserPayload | null {
   }
 }
 
-// Get user from cookies (server-side)
-export async function getUserFromCookie(): Promise<UserPayload | null> {
-  const cookieStore = cookies();
-  const token = cookieStore.get("token")?.value;
+// Get user from token string (Pages Router compatible)
+export function getUserFromCookie(token?: string): UserPayload | null {
   if (!token) return null;
   return verifyToken(token);
 }
