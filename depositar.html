@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrazaCripto - Depositar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <div class="logo-icon">B</div>
+                    <span class="logo-text">BrazaCripto</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">Principal</span>
+                    <a href="dashboard.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        Dashboard
+                    </a>
+                    <a href="carteira.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+                            <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+                            <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+                        </svg>
+                        Carteira
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Operações</span>
+                    <a href="depositar.html" class="nav-item active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 7l-5-5-5 5"/>
+                        </svg>
+                        Depositar
+                    </a>
+                    <a href="sacar.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22V2M17 17l-5 5-5-5"/>
+                        </svg>
+                        Sacar
+                    </a>
+                    <a href="historico.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Histórico
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Conta</span>
+                    <a href="configuracoes.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                        Configurações
+                    </a>
+                    <a href="#" onclick="handleLogout()" class="nav-item logout">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        Sair
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="user-avatar">B</div>
+                    <div class="user-details">
+                        <div class="user-name" id="user-name">Usuário</div>
+                        <div class="user-email" id="user-email">email@email.com</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Depositar</h1>
+                <p class="page-subtitle">Adicione fundos à sua carteira</p>
+            </header>
+
+            <div class="page-content">
+                <!-- Account Blocked Warning -->
+                <div id="blocked-warning" style="display: none;">
+                    <div class="card" style="border-color: var(--accent-danger); background: rgba(239, 68, 68, 0.1);">
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <span style="font-size: 48px;">🚫</span>
+                            <div>
+                                <h3 style="color: var(--accent-danger); margin-bottom: 8px;">Depósitos Bloqueados</h3>
+                                <p style="color: var(--text-secondary);">Sua conta está em análise. Depósitos temporariamente bloqueados.</p>
+                                <a href="analise.html" class="btn btn-secondary" style="margin-top: 16px;">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deposit Form -->
+                <div id="deposit-form-container">
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">💳 Novo Depósito</h3>
+                            </div>
+
+                            <form id="deposit-form" onsubmit="handleDeposit(event)">
+                                <div class="form-group">
+                                    <label class="form-label">Selecione a Moeda</label>
+                                    <select class="form-input form-select" id="deposit-coin" onchange="updateDepositInfo()" required>
+                                        <option value="">Escolha uma moeda</option>
+                                        <option value="USDT">USDT - Tether</option>
+                                        <option value="TRX">TRX - TRON</option>
+                                        <option value="BTC">BTC - Bitcoin</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Valor do Depósito</label>
+                                    <input type="number" class="form-input" id="deposit-amount" placeholder="0.00" step="0.00000001" min="0.00000001" required>
+                                    <div style="font-size: 12px; color: var(--text-muted); margin-top: 8px;" id="deposit-brl-value">≈ R$ 0,00</div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2v20M17 7l-5-5-5 5"/>
+                                    </svg>
+                                    Confirmar Depósito
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📍 Endereço de Depósito</h3>
+                            </div>
+
+                            <div id="deposit-address-container">
+                                <div class="empty-state">
+                                    <div class="empty-icon">📥</div>
+                                    <div class="empty-title">Selecione uma moeda</div>
+                                    <div class="empty-desc">Escolha uma moeda para ver o endereço de depósito</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Deposits -->
+                <div class="card" style="margin-top: 32px;">
+                    <div class="card-header">
+                        <h3 class="card-title">📋 Depósitos Recentes</h3>
+                    </div>
+
+                    <div id="recent-deposits">
+                        <div class="empty-state">
+                            <div class="empty-icon">📭</div>
+                            <div class="empty-title">Nenhum depósito ainda</div>
+                            <div class="empty-desc">Seus depósitos aparecerão aqui</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        const addresses = {
+            USDT: 'TLawgrKkiT3z4Z6993KLoLCQRhrxMvyNrP',
+            TRX: 'TYASr5UV6HEcXatwdFQfmLVUqQQQMUxHLS',
+            BTC: 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh'
+        };
+
+        const prices = {
+            USDT: 5.12,
+            TRX: 0.82,
+            BTC: 342567.89
+        };
+
+        let currentUser = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            currentUser = BrazaCrypto.requireAuth();
+            if (!currentUser) return;
+
+            if (currentUser.status === 'analysis') {
+                document.getElementById('blocked-warning').style.display = 'block';
+                document.getElementById('deposit-form-container').style.display = 'none';
+            }
+
+            updateUserInfo(currentUser);
+            loadRecentDeposits();
+
+            document.getElementById('deposit-amount').addEventListener('input', calculateBRLValue);
+        });
+
+        function updateUserInfo(user) {
+            document.getElementById('user-name').textContent = user.name || 'Usuário';
+            document.getElementById('user-email').textContent = user.email;
+            document.getElementById('user-avatar').textContent = (user.name || user.email)[0].toUpperCase();
+        }
+
+        function updateDepositInfo() {
+            const coin = document.getElementById('deposit-coin').value;
+            const container = document.getElementById('deposit-address-container');
+
+            if (!coin) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">📥</div>
+                        <div class="empty-title">Selecione uma moeda</div>
+                        <div class="empty-desc">Escolha uma moeda para ver o endereço de depósito</div>
+                    </div>
+                `;
+                return;
+            }
+
+            const address = addresses[coin];
+            const qrImage = BrazaCrypto.generateQRCode(address, 200);
+
+            container.innerHTML = `
+                <div style="text-align: center;">
+                    <div class="qr-code" style="margin: 0 auto 16px;">
+                        <img src="${qrImage}" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="wallet-address">
+                        <span class="wallet-address-text">${address}</span>
+                        <button class="copy-btn" onclick="copyAddress('${address}')">Copiar</button>
+                    </div>
+                    <div style="padding: 12px; background: var(--bg-tertiary); border-radius: var(--radius-sm); font-size: 12px; color: var(--text-muted); margin-top: 12px;">
+                        ⚠️ Envie apenas ${coin} para este endereço
+                    </div>
+                </div>
+            `;
+
+            calculateBRLValue();
+        }
+
+        function calculateBRLValue() {
+            const coin = document.getElementById('deposit-coin').value;
+            const amount = parseFloat(document.getElementById('deposit-amount').value) || 0;
+            const brlValue = amount * (prices[coin] || 0);
+
+            document.getElementById('deposit-brl-value').textContent = 
+                `≈ R$ ${BrazaCrypto.formatCurrency(brlValue, 2)}`;
+        }
+
+        function copyAddress(address) {
+            navigator.clipboard.writeText(address).then(() => {
+                BrazaCrypto.showNotification('Endereço copiado!', 'success');
+            }).catch(() => {
+                const textArea = document.createElement('textarea');
+                textArea.value = address;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                BrazaCrypto.showNotification('Endereço copiado!', 'success');
+            });
+        }
+
+        function handleDeposit(event) {
+            event.preventDefault();
+
+            const coin = document.getElementById('deposit-coin').value;
+            const amount = parseFloat(document.getElementById('deposit-amount').value);
+
+            if (!coin || amount <= 0) {
+                BrazaCrypto.showNotification('Preencha todos os campos corretamente', 'error');
+                return;
+            }
+
+            BrazaCrypto.showLoading(true);
+
+            setTimeout(() => {
+                // Adicionar saldo
+                BrazaCrypto.updateBalance(coin, amount, 'add');
+
+                // Registrar transação
+                BrazaCrypto.addTransaction({
+                    userId: currentUser.id,
+                    type: 'deposit',
+                    coin: coin,
+                    amount: amount,
+                    brlValue: amount * prices[coin],
+                    status: 'confirmed',
+                    address: addresses[coin],
+                    fee: 0
+                });
+
+                BrazaCrypto.showLoading(false);
+                BrazaCrypto.showNotification('Depósito realizado com sucesso!', 'success');
+
+                // Reset form
+                document.getElementById('deposit-form').reset();
+                document.getElementById('deposit-brl-value').textContent = '≈ R$ 0,00';
+                
+                // Reload page after delay
+                setTimeout(() => location.reload(), 1500);
+            }, 2000);
+        }
+
+        function loadRecentDeposits() {
+            const transactions = BrazaCrypto.getTransactions(currentUser.id)
+                .filter(t => t.type === 'deposit')
+                .slice(0, 5);
+
+            const container = document.getElementById('recent-deposits');
+
+            if (transactions.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">📭</div>
+                        <div class="empty-title">Nenhum depósito ainda</div>
+                        <div class="empty-desc">Seus depósitos aparecerão aqui</div>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            transactions.forEach(tx => {
+                const icon = tx.type === 'deposit' ? '📥' : '📤';
+                const statusBadge = tx.status === 'confirmed' 
+                    ? '<span class="badge badge-success">Confirmado</span>'
+                    : '<span class="badge badge-warning">Pendente</span>';
+
+                html += `
+                    <div class="history-item">
+                        <div class="history-icon deposit">${icon}</div>
+                        <div class="history-details">
+                            <div class="history-type">Depósito de ${tx.coin}</div>
+                            <div class="history-date">${BrazaCrypto.formatDate(tx.createdAt)}</div>
+                        </div>
+                        <div class="history-amount">
+                            <div class="history-value" style="color: var(--accent-secondary);">+ ${BrazaCrypto.formatCrypto(tx.amount, tx.coin === 'BTC' ? 8 : 2)} ${tx.coin}</div>
+                            ${statusBadge}
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function handleLogout() {
+            BrazaCrypto.logout();
+        }
+    </script>
+</body>
+</html>

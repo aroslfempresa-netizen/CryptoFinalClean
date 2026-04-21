@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrazaCripto - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-bg"></div>
+        
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-logo">
+                    <div class="logo-icon">B</div>
+                    <span class="logo-text">BrazaCripto</span>
+                </div>
+
+                <div class="login-tabs">
+                    <button class="login-tab active" onclick="switchTab('login')">Entrar</button>
+                    <button class="login-tab" onclick="switchTab('register')">Criar Conta</button>
+                </div>
+
+                <div id="error-message" class="login-error"></div>
+
+                <!-- Formulário de Login -->
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <h1 class="login-title">Bem-vindo de volta</h1>
+                    <p class="login-subtitle">Entre na sua conta para continuar</p>
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" id="login-email" placeholder="seu@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Senha</label>
+                        <input type="password" class="form-input" id="login-password" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                            <polyline points="10 17 15 12 10 7"></polyline>
+                            <line x1="15" y1="12" x2="3" y2="12"></line>
+                        </svg>
+                        Entrar
+                    </button>
+                </form>
+
+                <!-- Formulário de Registro -->
+                <form id="register-form" style="display: none;" onsubmit="handleRegister(event)">
+                    <h1 class="login-title">Criar nova conta</h1>
+                    <p class="login-subtitle">Preencha os dados para se cadastrar</p>
+
+                    <div class="form-group">
+                        <label class="form-label">Nome</label>
+                        <input type="text" class="form-input" id="register-name" placeholder="Seu nome completo">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" id="register-email" placeholder="seu@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Senha</label>
+                        <input type="password" class="form-input" id="register-password" placeholder="Mínimo 8 caracteres" required minlength="8">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Token de Registro</label>
+                        <input type="text" class="form-input" id="register-token" placeholder="Token fornecido pelo administrador" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <line x1="20" y1="8" x2="20" y2="14"></line>
+                            <line x1="23" y1="11" x2="17" y2="11"></line>
+                        </svg>
+                        Criar Conta
+                    </button>
+                </form>
+
+                <div class="login-footer">
+                    © 2026 BrazaCripto. Todos os direitos reservados.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Verificar se já está logado
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = BrazaCrypto.getCurrentUser();
+            if (user) {
+                redirectUser(user);
+            }
+        });
+
+        function switchTab(tab) {
+            const tabs = document.querySelectorAll('.login-tab');
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const errorDiv = document.getElementById('error-message');
+
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            if (tab === 'login') {
+                tabs[0].classList.add('active');
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+            } else {
+                tabs[1].classList.add('active');
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            }
+
+            errorDiv.classList.remove('show');
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.textContent = message;
+            errorDiv.classList.add('show');
+        }
+
+        function redirectUser(user) {
+            if (user.status === 'analysis') {
+                window.location.href = 'analise.html';
+            } else {
+                window.location.href = 'dashboard.html';
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            BrazaCrypto.showLoading(true);
+
+            setTimeout(() => {
+                const result = BrazaCrypto.loginUser(email, password);
+                
+                BrazaCrypto.showLoading(false);
+
+                if (result.success) {
+                    BrazaCrypto.showNotification('Login realizado com sucesso!', 'success');
+                    setTimeout(() => redirectUser(result.user), 500);
+                } else {
+                    showError(result.error);
+                }
+            }, 1000);
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const token = document.getElementById('register-token').value;
+
+            BrazaCrypto.showLoading(true);
+
+            setTimeout(() => {
+                const result = BrazaCrypto.registerUser(email, password, name, token);
+                
+                BrazaCrypto.showLoading(false);
+
+                if (result.success) {
+                    BrazaCrypto.showNotification('Conta criada com sucesso!', 'success');
+                    
+                    // Auto login
+                    setTimeout(() => {
+                        const loginResult = BrazaCrypto.loginUser(email, password);
+                        if (loginResult.success) {
+                            window.location.href = 'dashboard.html';
+                        }
+                    }, 500);
+                } else {
+                    showError(result.error);
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

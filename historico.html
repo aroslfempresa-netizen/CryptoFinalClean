@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrazaCripto - Histórico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <div class="logo-icon">B</div>
+                    <span class="logo-text">BrazaCripto</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">Principal</span>
+                    <a href="dashboard.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        Dashboard
+                    </a>
+                    <a href="carteira.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+                            <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+                            <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+                        </svg>
+                        Carteira
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Operações</span>
+                    <a href="depositar.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 7l-5-5-5 5"/>
+                        </svg>
+                        Depositar
+                    </a>
+                    <a href="sacar.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22V2M17 17l-5 5-5-5"/>
+                        </svg>
+                        Sacar
+                    </a>
+                    <a href="historico.html" class="nav-item active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Histórico
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Conta</span>
+                    <a href="configuracoes.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                        Configurações
+                    </a>
+                    <a href="#" onclick="handleLogout()" class="nav-item logout">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        Sair
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="user-avatar">B</div>
+                    <div class="user-details">
+                        <div class="user-name" id="user-name">Usuário</div>
+                        <div class="user-email" id="user-email">email@email.com</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Histórico</h1>
+                <p class="page-subtitle">Todas as suas transações</p>
+            </header>
+
+            <div class="page-content">
+                <!-- Filters -->
+                <div class="card" style="margin-bottom: 24px;">
+                    <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+                        <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
+                            <select class="form-input form-select" id="filter-type" onchange="applyFilters()">
+                                <option value="">Todos os tipos</option>
+                                <option value="deposit">Depósitos</option>
+                                <option value="withdraw">Saques</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
+                            <select class="form-input form-select" id="filter-coin" onchange="applyFilters()">
+                                <option value="">Todas as moedas</option>
+                                <option value="USDT">USDT</option>
+                                <option value="TRX">TRX</option>
+                                <option value="BTC">BTC</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
+                            <select class="form-input form-select" id="filter-status" onchange="applyFilters()">
+                                <option value="">Todos os status</option>
+                                <option value="confirmed">Confirmado</option>
+                                <option value="pending">Pendente</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-secondary" onclick="clearFilters()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 6h18M6 6v12a2 2 0 002 2h8a2 2 0 002-2V6M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/>
+                            </svg>
+                            Limpar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Transactions List -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">📋 Transações</h3>
+                        <span id="transaction-count" style="font-size: 13px; color: var(--text-muted);">0 transações</span>
+                    </div>
+
+                    <div id="transactions-list">
+                        <!-- Transactions will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Transaction Detail Modal -->
+    <div class="modal-overlay" id="transaction-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Detalhes da Transação</h3>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div id="modal-content">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        let currentUser = null;
+        let allTransactions = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            currentUser = BrazaCrypto.requireAuth();
+            if (!currentUser) return;
+
+            if (currentUser.status === 'analysis') {
+                window.location.href = 'analise.html';
+                return;
+            }
+
+            updateUserInfo(currentUser);
+            loadTransactions();
+        });
+
+        function updateUserInfo(user) {
+            document.getElementById('user-name').textContent = user.name || 'Usuário';
+            document.getElementById('user-email').textContent = user.email;
+            document.getElementById('user-avatar').textContent = (user.name || user.email)[0].toUpperCase();
+        }
+
+        function loadTransactions() {
+            allTransactions = BrazaCrypto.getTransactions(currentUser.id);
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const typeFilter = document.getElementById('filter-type').value;
+            const coinFilter = document.getElementById('filter-coin').value;
+            const statusFilter = document.getElementById('filter-status').value;
+
+            let filtered = allTransactions;
+
+            if (typeFilter) {
+                filtered = filtered.filter(t => t.type === typeFilter);
+            }
+            if (coinFilter) {
+                filtered = filtered.filter(t => t.coin === coinFilter);
+            }
+            if (statusFilter) {
+                filtered = filtered.filter(t => t.status === statusFilter);
+            }
+
+            renderTransactions(filtered);
+        }
+
+        function clearFilters() {
+            document.getElementById('filter-type').value = '';
+            document.getElementById('filter-coin').value = '';
+            document.getElementById('filter-status').value = '';
+            applyFilters();
+        }
+
+        function renderTransactions(transactions) {
+            const container = document.getElementById('transactions-list');
+            const countElement = document.getElementById('transaction-count');
+
+            countElement.textContent = `${transactions.length} transação${transactions.length !== 1 ? 'ões' : ''}`;
+
+            if (transactions.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">📭</div>
+                        <div class="empty-title">Nenhuma transação encontrada</div>
+                        <div class="empty-desc">Suas transações aparecerão aqui</div>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            transactions.forEach(tx => {
+                const isDeposit = tx.type === 'deposit';
+                const icon = isDeposit ? '📥' : '📤';
+                const iconClass = isDeposit ? 'deposit' : 'withdraw';
+                const valuePrefix = isDeposit ? '+' : '-';
+                const valueColor = isDeposit ? 'var(--accent-secondary)' : 'var(--accent-danger)';
+
+                const statusBadge = tx.status === 'confirmed' 
+                    ? '<span class="badge badge-success">✓ Confirmado</span>'
+                    : '<span class="badge badge-warning">⏳ Pendente</span>';
+
+                const typeLabel = isDeposit ? 'Depósito' : 'Saque';
+
+                html += `
+                    <div class="history-item" onclick="showDetails('${tx.id}')">
+                        <div class="history-icon ${iconClass}">${icon}</div>
+                        <div class="history-details">
+                            <div class="history-type">${typeLabel} de ${tx.coin}</div>
+                            <div class="history-date">${BrazaCrypto.formatDate(tx.createdAt)}</div>
+                        </div>
+                        <div class="history-amount">
+                            <div class="history-value" style="color: ${valueColor};">${valuePrefix} ${BrazaCrypto.formatCrypto(tx.amount, tx.coin === 'BTC' ? 8 : 2)} ${tx.coin}</div>
+                            ${statusBadge}
+                        </div>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-muted);">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function showDetails(transactionId) {
+            const tx = allTransactions.find(t => t.id === transactionId);
+            if (!tx) return;
+
+            const isDeposit = tx.type === 'deposit';
+            const typeLabel = isDeposit ? 'Depósito' : 'Saque';
+            const icon = isDeposit ? '📥' : '📤';
+
+            const statusBadge = tx.status === 'confirmed' 
+                ? '<span class="badge badge-success">✓ Confirmado</span>'
+                : '<span class="badge badge-warning">⏳ Pendente</span>';
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <div style="font-size: 48px; margin-bottom: 12px;">${icon}</div>
+                    <h4 style="font-size: 18px; margin-bottom: 8px;">${typeLabel} de ${tx.coin}</h4>
+                    ${statusBadge}
+                </div>
+
+                <div style="background: var(--bg-tertiary); border-radius: var(--radius-md); padding: 16px; margin-bottom: 16px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span style="color: var(--text-muted);">Valor</span>
+                        <span style="font-weight: 600;">${BrazaCrypto.formatCrypto(tx.amount, tx.coin === 'BTC' ? 8 : 2)} ${tx.coin}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span style="color: var(--text-muted);">Valor em BRL</span>
+                        <span>R$ ${BrazaCrypto.formatCurrency(tx.brlValue || 0, 2)}</span>
+                    </div>
+                    ${tx.fee ? `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                        <span style="color: var(--text-muted);">Taxa de Rede</span>
+                        <span>${BrazaCrypto.formatCrypto(tx.fee, tx.coin === 'BTC' ? 8 : 2)} ${tx.coin}</span>
+                    </div>
+                    ` : ''}
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: var(--text-muted);">Data</span>
+                        <span>${BrazaCrypto.formatDate(tx.createdAt)}</span>
+                    </div>
+                </div>
+
+                <div style="background: var(--bg-tertiary); border-radius: var(--radius-md); padding: 16px; margin-bottom: 16px;">
+                    <div style="margin-bottom: 12px;">
+                        <div style="color: var(--text-muted); font-size: 12px; margin-bottom: 4px;">ID da Transação</div>
+                        <div style="font-family: monospace; font-size: 12px; word-break: break-all;">${tx.id}</div>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <div style="color: var(--text-muted); font-size: 12px; margin-bottom: 4px;">Hash</div>
+                        <div style="font-family: monospace; font-size: 11px; word-break: break-all; color: var(--accent-primary);">${tx.hash}</div>
+                    </div>
+                    <div>
+                        <div style="color: var(--text-muted); font-size: 12px; margin-bottom: 4px;">${isDeposit ? 'Carteira de Origem' : 'Carteira de Destino'}</div>
+                        <div style="font-family: monospace; font-size: 12px; word-break: break-all;">${tx.address}</div>
+                    </div>
+                    ${tx.network ? `
+                    <div style="margin-top: 12px;">
+                        <div style="color: var(--text-muted); font-size: 12px; margin-bottom: 4px;">Rede</div>
+                        <div style="font-size: 12px;">${tx.network}</div>
+                    </div>
+                    ` : ''}
+                </div>
+
+                <button class="btn btn-secondary btn-block" onclick="copyHash('${tx.hash}')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copiar Hash
+                </button>
+            `;
+
+            document.getElementById('transaction-modal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('transaction-modal').classList.remove('show');
+        }
+
+        function copyHash(hash) {
+            navigator.clipboard.writeText(hash).then(() => {
+                BrazaCrypto.showNotification('Hash copiado!', 'success');
+            }).catch(() => {
+                const textArea = document.createElement('textarea');
+                textArea.value = hash;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                BrazaCrypto.showNotification('Hash copiado!', 'success');
+            });
+        }
+
+        // Close modal on outside click
+        document.getElementById('transaction-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'transaction-modal') {
+                closeModal();
+            }
+        });
+
+        // Close modal on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        function handleLogout() {
+            BrazaCrypto.logout();
+        }
+    </script>
+</body>
+</html>

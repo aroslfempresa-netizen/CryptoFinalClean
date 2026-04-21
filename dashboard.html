@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrazaCripto - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <div class="logo-icon">B</div>
+                    <span class="logo-text">BrazaCripto</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">Principal</span>
+                    <a href="dashboard.html" class="nav-item active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        Dashboard
+                    </a>
+                    <a href="carteira.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+                            <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+                            <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+                        </svg>
+                        Carteira
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Operações</span>
+                    <a href="depositar.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 7l-5-5-5 5"/>
+                        </svg>
+                        Depositar
+                    </a>
+                    <a href="sacar.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22V2M17 17l-5 5-5-5"/>
+                        </svg>
+                        Sacar
+                    </a>
+                    <a href="historico.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Histórico
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Conta</span>
+                    <a href="configuracoes.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                        Configurações
+                    </a>
+                    <a href="#" onclick="handleLogout()" class="nav-item logout">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        Sair
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="user-avatar">B</div>
+                    <div class="user-details">
+                        <div class="user-name" id="user-name">Usuário</div>
+                        <div class="user-email" id="user-email">email@email.com</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Dashboard</h1>
+                <p class="page-subtitle">Visão geral da sua carteira</p>
+            </header>
+
+            <div class="page-content">
+                <!-- Crypto Cards -->
+                <div class="grid grid-3" style="margin-bottom: 32px;">
+                    <!-- USDT -->
+                    <div class="crypto-card">
+                        <div class="crypto-card-header">
+                            <img src="https://statics.foxbit.com.br/icons/colored/usdt.svg" alt="USDT" class="crypto-icon">
+                            <div class="crypto-info">
+                                <div class="crypto-name">Tether</div>
+                                <div class="crypto-symbol">USDT</div>
+                            </div>
+                        </div>
+                        <div class="crypto-balance" id="usdt-balance">0,00 USDT</div>
+                        <div class="crypto-value" id="usdt-value">≈ R$ 0,00</div>
+                        <div class="crypto-price">
+                            <div>
+                                <div class="price-label">Preço Atual</div>
+                                <div class="price-value">R$ 5,1200</div>
+                            </div>
+                            <span class="price-change positive">+0,02%</span>
+                        </div>
+                    </div>
+
+                    <!-- TRX -->
+                    <div class="crypto-card">
+                        <div class="crypto-card-header">
+                            <img src="https://statics.foxbit.com.br/icons/colored/trx.svg" alt="TRX" class="crypto-icon">
+                            <div class="crypto-info">
+                                <div class="crypto-name">TRON</div>
+                                <div class="crypto-symbol">TRX</div>
+                            </div>
+                        </div>
+                        <div class="crypto-balance" id="trx-balance">0,00 TRX</div>
+                        <div class="crypto-value" id="trx-value">≈ R$ 0,00</div>
+                        <div class="crypto-price">
+                            <div>
+                                <div class="price-label">Preço Atual</div>
+                                <div class="price-value">R$ 0,8200</div>
+                            </div>
+                            <span class="price-change negative">-1,23%</span>
+                        </div>
+                    </div>
+
+                    <!-- BTC -->
+                    <div class="crypto-card">
+                        <div class="crypto-card-header">
+                            <img src="https://statics.foxbit.com.br/icons/colored/btc.svg" alt="BTC" class="crypto-icon">
+                            <div class="crypto-info">
+                                <div class="crypto-name">Bitcoin</div>
+                                <div class="crypto-symbol">BTC</div>
+                            </div>
+                        </div>
+                        <div class="crypto-balance" id="btc-balance">0,00000000 BTC</div>
+                        <div class="crypto-value" id="btc-value">≈ R$ 0,00</div>
+                        <div class="crypto-price">
+                            <div>
+                                <div class="price-label">Preço Atual</div>
+                                <div class="price-value">R$ 342.567,89</div>
+                            </div>
+                            <span class="price-change positive">+2,45%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h2 class="chart-title">Gráfico de Preços</h2>
+                        <div style="display: flex; gap: 16px; align-items: center;">
+                            <select id="chart-coin" class="form-input form-select" style="width: 120px; padding: 8px 12px;" onchange="updateChart()">
+                                <option value="USDT">USDT</option>
+                                <option value="TRX">TRX</option>
+                                <option value="BTC">BTC</option>
+                            </select>
+                            <div class="chart-tabs">
+                                <button class="chart-tab" onclick="setPeriod('1H', this)">1H</button>
+                                <button class="chart-tab active" onclick="setPeriod('24H', this)">24H</button>
+                                <button class="chart-tab" onclick="setPeriod('7D', this)">7D</button>
+                                <button class="chart-tab" onclick="setPeriod('30D', this)">30D</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-canvas" id="price-chart"></div>
+                </div>
+
+                <!-- Master Panel (apenas para mestre) -->
+                <div id="master-panel" style="display: none; margin-top: 32px;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🔧 Painel do Administrador</h3>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Gerenciar Usuários</label>
+                            <div id="users-list" class="table-container">
+                                <!-- Lista de usuários será preenchida via JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        let currentPeriod = '24H';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = BrazaCrypto.requireAuth();
+            if (!user) return;
+
+            // Verificar se está em análise
+            if (user.status === 'analysis') {
+                window.location.href = 'analise.html';
+                return;
+            }
+
+            updateUserInfo(user);
+            updateBalances(user);
+            updateChart();
+            
+            // Mostrar painel master se aplicável
+            if (user.isMaster) {
+                document.getElementById('master-panel').style.display = 'block';
+                loadUsersList();
+            }
+        });
+
+        function updateUserInfo(user) {
+            document.getElementById('user-name').textContent = user.name || 'Usuário';
+            document.getElementById('user-email').textContent = user.email;
+            document.getElementById('user-avatar').textContent = (user.name || user.email)[0].toUpperCase();
+        }
+
+        function updateBalances(user) {
+            const balances = user.balances || { USDT: 0, TRX: 0, BTC: 0 };
+
+            // USDT
+            document.getElementById('usdt-balance').textContent = 
+                `${BrazaCrypto.formatCurrency(balances.USDT || 0, 2)} USDT`;
+            document.getElementById('usdt-value').textContent = 
+                `≈ R$ ${BrazaCrypto.formatCurrency((balances.USDT || 0) * 5.12, 2)}`;
+
+            // TRX
+            document.getElementById('trx-balance').textContent = 
+                `${BrazaCrypto.formatCurrency(balances.TRX || 0, 2)} TRX`;
+            document.getElementById('trx-value').textContent = 
+                `≈ R$ ${BrazaCrypto.formatCurrency((balances.TRX || 0) * 0.82, 2)}`;
+
+            // BTC
+            document.getElementById('btc-balance').textContent = 
+                `${BrazaCrypto.formatCrypto(balances.BTC || 0, 8)} BTC`;
+            document.getElementById('btc-value').textContent = 
+                `≈ R$ ${BrazaCrypto.formatCurrency((balances.BTC || 0) * 342567.89, 2)}`;
+        }
+
+        function updateChart() {
+            const coin = document.getElementById('chart-coin').value;
+            const prices = {
+                USDT: 5.12,
+                TRX: 0.82,
+                BTC: 342567.89
+            };
+            
+            const colors = {
+                USDT: '#26a17b',
+                TRX: '#ff060a',
+                BTC: '#f7931a'
+            };
+
+            const points = currentPeriod === '1H' ? 20 : 
+                          currentPeriod === '24H' ? 50 : 
+                          currentPeriod === '7D' ? 100 : 150;
+
+            const data = BrazaCrypto.generateChartData(points, prices[coin]);
+            BrazaCrypto.drawChart('price-chart', data, colors[coin]);
+        }
+
+        function setPeriod(period, button) {
+            currentPeriod = period;
+            document.querySelectorAll('.chart-tab').forEach(tab => tab.classList.remove('active'));
+            button.classList.add('active');
+            updateChart();
+        }
+
+        function loadUsersList() {
+            const users = BrazaCrypto.getAllUsers();
+            const container = document.getElementById('users-list');
+
+            if (users.length === 0) {
+                container.innerHTML = '<p style="color: var(--text-muted); padding: 16px;">Nenhum usuário cadastrado</p>';
+                return;
+            }
+
+            let html = `
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Nome</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            users.forEach(user => {
+                const statusBadge = user.status === 'active' 
+                    ? '<span class="badge badge-success">Ativo</span>'
+                    : '<span class="badge badge-warning">Em Análise</span>';
+
+                html += `
+                    <tr>
+                        <td>${user.email}</td>
+                        <td>${user.name || '-'}</td>
+                        <td>${statusBadge}</td>
+                        <td>
+                            ${user.status === 'active' 
+                                ? `<button class="btn btn-secondary" style="padding: 8px 12px; font-size: 12px;" onclick="toggleStatus('${user.email}', 'analysis')">Bloquear</button>`
+                                : `<button class="btn btn-success" style="padding: 8px 12px; font-size: 12px;" onclick="toggleStatus('${user.email}', 'active')">Ativar</button>`
+                            }
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table>';
+            container.innerHTML = html;
+        }
+
+        function toggleStatus(email, status) {
+            const result = BrazaCrypto.setUserStatus(email, status);
+            if (result.success) {
+                BrazaCrypto.showNotification(`Status atualizado com sucesso!`, 'success');
+                loadUsersList();
+            } else {
+                BrazaCrypto.showNotification(result.error, 'error');
+            }
+        }
+
+        function handleLogout() {
+            BrazaCrypto.logout();
+        }
+    </script>
+</body>
+</html>

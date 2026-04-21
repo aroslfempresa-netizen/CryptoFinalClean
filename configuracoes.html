@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrazaCripto - Configurações</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <div class="logo-icon">B</div>
+                    <span class="logo-text">BrazaCripto</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">Principal</span>
+                    <a href="dashboard.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        Dashboard
+                    </a>
+                    <a href="carteira.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+                            <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+                            <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+                        </svg>
+                        Carteira
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Operações</span>
+                    <a href="depositar.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 7l-5-5-5 5"/>
+                        </svg>
+                        Depositar
+                    </a>
+                    <a href="sacar.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22V2M17 17l-5 5-5-5"/>
+                        </svg>
+                        Sacar
+                    </a>
+                    <a href="historico.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Histórico
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Conta</span>
+                    <a href="configuracoes.html" class="nav-item active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                        Configurações
+                    </a>
+                    <a href="#" onclick="handleLogout()" class="nav-item logout">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        Sair
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="user-avatar">B</div>
+                    <div class="user-details">
+                        <div class="user-name" id="user-name">Usuário</div>
+                        <div class="user-email" id="user-email">email@email.com</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Configurações</h1>
+                <p class="page-subtitle">Gerencie sua conta e preferências</p>
+            </header>
+
+            <div class="page-content">
+                <!-- Settings Tabs -->
+                <div class="settings-tabs">
+                    <button class="settings-tab active" onclick="switchSettingsTab('profile', this)">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        Perfil
+                    </button>
+                    <button class="settings-tab" onclick="switchSettingsTab('security', this)">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        Segurança
+                    </button>
+                    <button class="settings-tab" onclick="switchSettingsTab('limits', this)">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                        Limites
+                    </button>
+                    <button class="settings-tab" onclick="switchSettingsTab('preferences', this)">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 16v-4M12 8h.01"></path>
+                        </svg>
+                        Preferências
+                    </button>
+                    <button class="settings-tab" onclick="switchSettingsTab('notifications', this)">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        Notificações
+                    </button>
+                </div>
+
+                <!-- Profile Tab -->
+                <div class="settings-content active" id="tab-profile">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">👤 Informações do Perfil</h3>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: 24px; margin-bottom: 32px;">
+                            <div style="position: relative;">
+                                <div class="user-avatar" id="profile-avatar" style="width: 80px; height: 80px; font-size: 32px;">B</div>
+                                <button style="position: absolute; bottom: 0; right: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--accent-primary); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="changeAvatar()">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div>
+                                <h4 id="profile-name" style="font-size: 18px; margin-bottom: 4px;">Usuário</h4>
+                                <p id="profile-email" style="font-size: 14px; color: var(--text-muted);">email@email.com</p>
+                            </div>
+                        </div>
+
+                        <form onsubmit="saveProfile(event)">
+                            <div class="grid grid-2">
+                                <div class="form-group">
+                                    <label class="form-label">Nome Completo</label>
+                                    <input type="text" class="form-input" id="input-name" placeholder="Seu nome">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-input" id="input-email" placeholder="seu@email.com" readonly style="opacity: 0.6;">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Alterar Senha</label>
+                                <input type="password" class="form-input" id="input-current-password" placeholder="Senha atual" style="margin-bottom: 12px;">
+                                <input type="password" class="form-input" id="input-new-password" placeholder="Nova senha" style="margin-bottom: 12px;">
+                                <input type="password" class="form-input" id="input-confirm-password" placeholder="Confirmar nova senha">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                    <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                                    <polyline points="7 3 7 8 15 8"></polyline>
+                                </svg>
+                                Salvar Alterações
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Security Tab -->
+                <div class="settings-content" id="tab-security">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🔒 Segurança da Conta</h3>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <div class="setting-title">Autenticação de Dois Fatores (2FA)</div>
+                                <div class="setting-desc">Adicione uma camada extra de segurança à sua conta</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle-2fa" onchange="toggleSetting('twoFactorEnabled', this.checked)">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <div class="setting-title">Confirmação por Email</div>
+                                <div class="setting-desc">Receba códigos de verificação por email</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle-email" onchange="toggleSetting('emailConfirmation', this.checked)">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <div class="setting-title">Confirmação por SMS</div>
+                                <div class="setting-desc">Receba códigos de verificação por SMS</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle-sms" onchange="toggleSetting('smsConfirmation', this.checked)">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-top: 24px;">
+                        <div class="card-header">
+                            <h3 class="card-title">🖥️ Sessões Ativas</h3>
+                        </div>
+
+                        <div id="active-sessions">
+                            <div style="display: flex; align-items: center; gap: 16px; padding: 16px; background: var(--bg-tertiary); border-radius: var(--radius-md); margin-bottom: 12px;">
+                                <div style="width: 40px; height: 40px; background: var(--bg-glass); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
+                                    💻
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="font-size: 14px; font-weight: 500;">Sessão Atual</div>
+                                    <div style="font-size: 12px; color: var(--text-muted);">Navegador • IP: 192.168.1.xxx</div>
+                                </div>
+                                <span class="badge badge-success">Ativa</span>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-danger" onclick="endAllSessions()">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                <polyline points="16 17 21 12 16 7"></polyline>
+                                <line x1="21" y1="12" x2="9" y2="12"></line>
+                            </svg>
+                            Encerrar Todas as Sessões
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Limits Tab -->
+                <div class="settings-content" id="tab-limits">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">💳 Limites da Conta</h3>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px;">
+                            <div style="background: var(--bg-tertiary); border-radius: var(--radius-md); padding: 20px; text-align: center;">
+                                <div style="font-size: 32px; margin-bottom: 8px;">🥉</div>
+                                <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Bronze</div>
+                                <div style="font-size: 12px; color: var(--text-muted);">Nível Inicial</div>
+                            </div>
+                            <div style="background: var(--bg-tertiary); border-radius: var(--radius-md); padding: 20px; text-align: center; border: 2px solid var(--accent-primary);">
+                                <div style="font-size: 32px; margin-bottom: 8px;">🥇</div>
+                                <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Prata</div>
+                                <div style="font-size: 12px; color: var(--accent-primary);">Seu nível atual</div>
+                            </div>
+                            <div style="background: var(--bg-tertiary); border-radius: var(--radius-md); padding: 20px; text-align: center;">
+                                <div style="font-size: 32px; margin-bottom: 8px;">💎</div>
+                                <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Diamante</div>
+                                <div style="font-size: 12px; color: var(--text-muted);">Nível Premium</div>
+                            </div>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Tipo de Limite</th>
+                                    <th>Valor</th>
+                                    <th>Usado Hoje</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Saque Diário</td>
+                                    <td>R$ 100.000,00</td>
+                                    <td>R$ 0,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Saque Mensal</td>
+                                    <td>R$ 1.000.000,00</td>
+                                    <td>R$ 0,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Depósito Diário</td>
+                                    <td>Ilimitado</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Depósito Mensal</td>
+                                    <td>Ilimitado</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Preferences Tab -->
+                <div class="settings-content" id="tab-preferences">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🎨 Preferências</h3>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <div class="setting-title">Animações</div>
+                                <div class="setting-desc">Ativar animações na interface</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle-animations" onchange="toggleSetting('animations', this.checked)" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <div class="setting-title">Moeda Padrão</div>
+                                <div class="setting-desc">Moeda exibida por padrão nos saldos</div>
+                            </div>
+                            <select class="form-input form-select" style="width: 150px;" id="select-currency" onchange="toggleSetting('defaultCurrency', this.value)">
+                                <option value="BRL">BRL (R$)</option>
+                                <option value="USD">USD ($)</option>
+                                <option value="EUR">EUR (€)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications Tab -->
+                <div class="settings-content" id="tab-notifications">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🔔 Notificações</h3>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <div class="setting-title">Depósitos</div>
+                                <div class="setting-desc">Receber notificações quando receber depósitos</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="notify-deposit" onchange="toggleNotification('deposit', this.checked)" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <div class="setting-title">Saques</div>
+                                <div class="setting-desc">Receber notificações sobre saques</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="notify-withdraw" onchange="toggleNotification('withdraw', this.checked)" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <div class="setting-title">Logins</div>
+                                <div class="setting-desc">Receber notificações de novos acessos</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="notify-login" onchange="toggleNotification('login', this.checked)" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <div class="setting-title">Segurança</div>
+                                <div class="setting-desc">Alertas de segurança e atividades suspeitas</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="notify-security" onchange="toggleNotification('security', this.checked)" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        let currentUser = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            currentUser = BrazaCrypto.requireAuth();
+            if (!currentUser) return;
+
+            if (currentUser.status === 'analysis') {
+                window.location.href = 'analise.html';
+                return;
+            }
+
+            updateUserInfo(currentUser);
+            loadSettings(currentUser);
+        });
+
+        function updateUserInfo(user) {
+            document.getElementById('user-name').textContent = user.name || 'Usuário';
+            document.getElementById('user-email').textContent = user.email;
+            document.getElementById('user-avatar').textContent = (user.name || user.email)[0].toUpperCase();
+            
+            document.getElementById('profile-name').textContent = user.name || 'Usuário';
+            document.getElementById('profile-email').textContent = user.email;
+            document.getElementById('profile-avatar').textContent = (user.name || user.email)[0].toUpperCase();
+            
+            document.getElementById('input-name').value = user.name || '';
+            document.getElementById('input-email').value = user.email;
+        }
+
+        function loadSettings(user) {
+            const settings = user.settings || {};
+
+            // Security
+            document.getElementById('toggle-2fa').checked = settings.twoFactorEnabled || false;
+            document.getElementById('toggle-email').checked = settings.emailConfirmation !== false;
+            document.getElementById('toggle-sms').checked = settings.smsConfirmation || false;
+
+            // Preferences
+            document.getElementById('toggle-animations').checked = settings.animations !== false;
+            document.getElementById('select-currency').value = settings.defaultCurrency || 'BRL';
+
+            // Notifications
+            const notifications = settings.notifications || {};
+            document.getElementById('notify-deposit').checked = notifications.deposit !== false;
+            document.getElementById('notify-withdraw').checked = notifications.withdraw !== false;
+            document.getElementById('notify-login').checked = notifications.login !== false;
+            document.getElementById('notify-security').checked = notifications.security !== false;
+        }
+
+        function switchSettingsTab(tab, button) {
+            document.querySelectorAll('.settings-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.settings-content').forEach(c => c.classList.remove('active'));
+
+            button.classList.add('active');
+            document.getElementById(`tab-${tab}`).classList.add('active');
+        }
+
+        function saveProfile(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('input-name').value;
+            const currentPassword = document.getElementById('input-current-password').value;
+            const newPassword = document.getElementById('input-new-password').value;
+            const confirmPassword = document.getElementById('input-confirm-password').value;
+
+            // Validar senha atual se tentando alterar senha
+            if (newPassword) {
+                if (!currentPassword) {
+                    BrazaCrypto.showNotification('Digite sua senha atual', 'error');
+                    return;
+                }
+                if (currentPassword !== currentUser.password) {
+                    BrazaCrypto.showNotification('Senha atual incorreta', 'error');
+                    return;
+                }
+                if (newPassword !== confirmPassword) {
+                    BrazaCrypto.showNotification('As senhas não coincidem', 'error');
+                    return;
+                }
+                if (newPassword.length < 8) {
+                    BrazaCrypto.showNotification('A nova senha deve ter pelo menos 8 caracteres', 'error');
+                    return;
+                }
+            }
+
+            const updates = { name };
+            if (newPassword) {
+                updates.password = newPassword;
+            }
+
+            if (BrazaCrypto.updateCurrentUser(updates)) {
+                BrazaCrypto.showNotification('Perfil atualizado com sucesso!', 'success');
+                setTimeout(() => location.reload(), 1000);
+            } else {
+                BrazaCrypto.showNotification('Erro ao atualizar perfil', 'error');
+            }
+        }
+
+        function toggleSetting(key, value) {
+            const settings = currentUser.settings || {};
+            settings[key] = value;
+
+            if (BrazaCrypto.updateCurrentUser({ settings })) {
+                BrazaCrypto.showNotification('Configuração salva!', 'success');
+            }
+        }
+
+        function toggleNotification(key, value) {
+            const settings = currentUser.settings || {};
+            if (!settings.notifications) {
+                settings.notifications = {};
+            }
+            settings.notifications[key] = value;
+
+            if (BrazaCrypto.updateCurrentUser({ settings })) {
+                BrazaCrypto.showNotification('Notificação atualizada!', 'success');
+            }
+        }
+
+        function changeAvatar() {
+            BrazaCrypto.showNotification('Funcionalidade em desenvolvimento', 'success');
+        }
+
+        function endAllSessions() {
+            if (confirm('Tem certeza que deseja encerrar todas as sessões? Você será desconectado.')) {
+                BrazaCrypto.logout();
+            }
+        }
+
+        function handleLogout() {
+            BrazaCrypto.logout();
+        }
+    </script>
+</body>
+</html>

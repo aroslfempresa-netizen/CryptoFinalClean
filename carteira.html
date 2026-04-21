@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrazaCripto - Carteira</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <div class="logo-icon">B</div>
+                    <span class="logo-text">BrazaCripto</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">Principal</span>
+                    <a href="dashboard.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        Dashboard
+                    </a>
+                    <a href="carteira.html" class="nav-item active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+                            <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+                            <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+                        </svg>
+                        Carteira
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Operações</span>
+                    <a href="depositar.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 7l-5-5-5 5"/>
+                        </svg>
+                        Depositar
+                    </a>
+                    <a href="sacar.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22V2M17 17l-5 5-5-5"/>
+                        </svg>
+                        Sacar
+                    </a>
+                    <a href="historico.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Histórico
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Conta</span>
+                    <a href="configuracoes.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                        Configurações
+                    </a>
+                    <a href="#" onclick="handleLogout()" class="nav-item logout">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        Sair
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="user-avatar">B</div>
+                    <div class="user-details">
+                        <div class="user-name" id="user-name">Usuário</div>
+                        <div class="user-email" id="user-email">email@email.com</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Carteira</h1>
+                <p class="page-subtitle">Endereços de depósito das suas criptomoedas</p>
+            </header>
+
+            <div class="page-content">
+                <div class="grid grid-3">
+                    <!-- USDT -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <img src="https://statics.foxbit.com.br/icons/colored/usdt.svg" alt="USDT" style="width: 40px; height: 40px;">
+                                <div>
+                                    <div class="card-title">Tether</div>
+                                    <div style="font-size: 13px; color: var(--text-muted);">USDT (TRC-20)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="qr-code" id="qr-usdt"></div>
+
+                        <div class="wallet-address">
+                            <span class="wallet-address-text" id="address-usdt">TLawgrKkiT3z4Z6993KLoLCQRhrxMvyNrP</span>
+                            <button class="copy-btn" onclick="copyAddress('USDT')">Copiar</button>
+                        </div>
+
+                        <div style="padding: 12px; background: var(--bg-tertiary); border-radius: var(--radius-sm); font-size: 12px; color: var(--text-muted);">
+                            ⚠️ Envie apenas USDT na rede TRC-20 para este endereço
+                        </div>
+                    </div>
+
+                    <!-- TRX -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <img src="https://statics.foxbit.com.br/icons/colored/trx.svg" alt="TRX" style="width: 40px; height: 40px;">
+                                <div>
+                                    <div class="card-title">TRON</div>
+                                    <div style="font-size: 13px; color: var(--text-muted);">TRX</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="qr-code" id="qr-trx"></div>
+
+                        <div class="wallet-address">
+                            <span class="wallet-address-text" id="address-trx">TYASr5UV6HEcXatwdFQfmLVUqQQQMUxHLS</span>
+                            <button class="copy-btn" onclick="copyAddress('TRX')">Copiar</button>
+                        </div>
+
+                        <div style="padding: 12px; background: var(--bg-tertiary); border-radius: var(--radius-sm); font-size: 12px; color: var(--text-muted);">
+                            ⚠️ Envie apenas TRX na rede TRON para este endereço
+                        </div>
+                    </div>
+
+                    <!-- BTC -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <img src="https://statics.foxbit.com.br/icons/colored/btc.svg" alt="BTC" style="width: 40px; height: 40px;">
+                                <div>
+                                    <div class="card-title">Bitcoin</div>
+                                    <div style="font-size: 13px; color: var(--text-muted);">BTC</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="qr-code" id="qr-btc"></div>
+
+                        <div class="wallet-address">
+                            <span class="wallet-address-text" id="address-btc">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</span>
+                            <button class="copy-btn" onclick="copyAddress('BTC')">Copiar</button>
+                        </div>
+
+                        <div style="padding: 12px; background: var(--bg-tertiary); border-radius: var(--radius-sm); font-size: 12px; color: var(--text-muted);">
+                            ⚠️ Envie apenas BTC na rede Bitcoin para este endereço
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saldo Summary -->
+                <div class="card" style="margin-top: 32px;">
+                    <div class="card-header">
+                        <h3 class="card-title">💰 Resumo de Saldos</h3>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Moeda</th>
+                                <th>Saldo Disponível</th>
+                                <th>Valor em BRL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="https://statics.foxbit.com.br/icons/colored/usdt.svg" alt="USDT" style="width: 32px; height: 32px;">
+                                    <div>
+                                        <div style="font-weight: 600;">Tether</div>
+                                        <div style="font-size: 12px; color: var(--text-muted);">USDT</div>
+                                    </div>
+                                </td>
+                                <td id="usdt-balance">0,00 USDT</td>
+                                <td id="usdt-brl">R$ 0,00</td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="https://statics.foxbit.com.br/icons/colored/trx.svg" alt="TRX" style="width: 32px; height: 32px;">
+                                    <div>
+                                        <div style="font-weight: 600;">TRON</div>
+                                        <div style="font-size: 12px; color: var(--text-muted);">TRX</div>
+                                    </div>
+                                </td>
+                                <td id="trx-balance">0,00 TRX</td>
+                                <td id="trx-brl">R$ 0,00</td>
+                            </tr>
+                            <tr>
+                                <td style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="https://statics.foxbit.com.br/icons/colored/btc.svg" alt="BTC" style="width: 32px; height: 32px;">
+                                    <div>
+                                        <div style="font-weight: 600;">Bitcoin</div>
+                                        <div style="font-size: 12px; color: var(--text-muted);">BTC</div>
+                                    </div>
+                                </td>
+                                <td id="btc-balance">0,00000000 BTC</td>
+                                <td id="btc-brl">R$ 0,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = BrazaCrypto.requireAuth();
+            if (!user) return;
+
+            if (user.status === 'analysis') {
+                window.location.href = 'analise.html';
+                return;
+            }
+
+            updateUserInfo(user);
+            generateQRCodes();
+            updateBalances(user);
+        });
+
+        function updateUserInfo(user) {
+            document.getElementById('user-name').textContent = user.name || 'Usuário';
+            document.getElementById('user-email').textContent = user.email;
+            document.getElementById('user-avatar').textContent = (user.name || user.email)[0].toUpperCase();
+        }
+
+        function generateQRCodes() {
+            const addresses = {
+                USDT: 'TLawgrKkiT3z4Z6993KLoLCQRhrxMvyNrP',
+                TRX: 'TYASr5UV6HEcXatwdFQfmLVUqQQQMUxHLS',
+                BTC: 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh'
+            };
+
+            Object.keys(addresses).forEach(coin => {
+                const qrContainer = document.getElementById(`qr-${coin.toLowerCase()}`);
+                const qrImage = document.createElement('img');
+                qrImage.src = BrazaCrypto.generateQRCode(addresses[coin], 200);
+                qrImage.style.width = '100%';
+                qrImage.style.height = '100%';
+                qrImage.style.objectFit = 'contain';
+                qrContainer.innerHTML = '';
+                qrContainer.appendChild(qrImage);
+            });
+        }
+
+        function updateBalances(user) {
+            const balances = user.balances || { USDT: 0, TRX: 0, BTC: 0 };
+
+            document.getElementById('usdt-balance').textContent = 
+                `${BrazaCrypto.formatCurrency(balances.USDT || 0, 2)} USDT`;
+            document.getElementById('usdt-brl').textContent = 
+                `R$ ${BrazaCrypto.formatCurrency((balances.USDT || 0) * 5.12, 2)}`;
+
+            document.getElementById('trx-balance').textContent = 
+                `${BrazaCrypto.formatCurrency(balances.TRX || 0, 2)} TRX`;
+            document.getElementById('trx-brl').textContent = 
+                `R$ ${BrazaCrypto.formatCurrency((balances.TRX || 0) * 0.82, 2)}`;
+
+            document.getElementById('btc-balance').textContent = 
+                `${BrazaCrypto.formatCrypto(balances.BTC || 0, 8)} BTC`;
+            document.getElementById('btc-brl').textContent = 
+                `R$ ${BrazaCrypto.formatCurrency((balances.BTC || 0) * 342567.89, 2)}`;
+        }
+
+        function copyAddress(coin) {
+            const addressElement = document.getElementById(`address-${coin.toLowerCase()}`);
+            const address = addressElement.textContent;
+
+            navigator.clipboard.writeText(address).then(() => {
+                BrazaCrypto.showNotification('Endereço copiado!', 'success');
+            }).catch(() => {
+                // Fallback
+                const textArea = document.createElement('textarea');
+                textArea.value = address;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                BrazaCrypto.showNotification('Endereço copiado!', 'success');
+            });
+        }
+
+        function handleLogout() {
+            BrazaCrypto.logout();
+        }
+    </script>
+</body>
+</html>

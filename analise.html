@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrazaCripto - Conta em Análise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .analysis-header {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(239, 68, 68, 0.1));
+            border-bottom: 1px solid var(--border-color);
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .analysis-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: var(--radius-md);
+        }
+
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--accent-warning);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .restricted-feature {
+            opacity: 0.5;
+            pointer-events: none;
+            position: relative;
+        }
+
+        .restricted-feature::after {
+            content: '🔒';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+        }
+
+        .doc-checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .doc-checklist li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .doc-checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .doc-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="logo" onclick="return false;">
+                    <div class="logo-icon">B</div>
+                    <span class="logo-text">BrazaCripto</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">Principal</span>
+                    <a href="#" class="nav-item restricted-feature" onclick="showRestricted()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        Dashboard
+                    </a>
+                    <a href="#" class="nav-item restricted-feature" onclick="showRestricted()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+                            <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+                            <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+                        </svg>
+                        Carteira
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Operações</span>
+                    <a href="#" class="nav-item restricted-feature" onclick="showRestricted()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 7l-5-5-5 5"/>
+                        </svg>
+                        Depositar
+                    </a>
+                    <a href="#" class="nav-item restricted-feature" onclick="showRestricted()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22V2M17 17l-5 5-5-5"/>
+                        </svg>
+                        Sacar
+                    </a>
+                    <a href="#" class="nav-item restricted-feature" onclick="showRestricted()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Histórico
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Conta</span>
+                    <a href="#" class="nav-item restricted-feature" onclick="showRestricted()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                        Configurações
+                    </a>
+                    <a href="#" onclick="handleLogout()" class="nav-item logout">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        Sair
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="user-avatar">M</div>
+                    <div class="user-details">
+                        <div class="user-name" id="user-name">Usuário</div>
+                        <div class="user-email" id="user-email">email@email.com</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="analysis-header">
+                <div>
+                    <h1 class="page-title">🔎 Conta em Análise</h1>
+                    <p class="page-subtitle">Sua conta está temporariamente restrita</p>
+                </div>
+                <div class="analysis-badge">
+                    <div class="pulse-dot"></div>
+                    <span style="font-weight: 600; color: var(--accent-warning);">EM ANÁLISE</span>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="analysis-page">
+                    <!-- Main Warning Card -->
+                    <div class="analysis-card">
+                        <div class="analysis-icon">⚠️</div>
+                        <h2 class="analysis-title">Conta Temporariamente Bloqueada</h2>
+                        <p class="analysis-message">
+                            Sua conta está temporariamente bloqueada para verificação da origem dos fundos.
+                            Esta é uma medida de segurança padrão para proteger sua conta.
+                        </p>
+
+                        <div class="analysis-status">
+                            <div class="pulse-dot"></div>
+                            Status: EM ANÁLISE
+                        </div>
+
+                        <!-- Restrictions -->
+                        <div class="analysis-blocks">
+                            <div class="analysis-block">
+                                <div class="analysis-block-icon">💸</div>
+                                <div class="analysis-block-title">Saques</div>
+                                <div class="analysis-block-status">Bloqueados</div>
+                            </div>
+                            <div class="analysis-block">
+                                <div class="analysis-block-icon">📥</div>
+                                <div class="analysis-block-title">Depósitos</div>
+                                <div class="analysis-block-status">Bloqueados</div>
+                            </div>
+                            <div class="analysis-block">
+                                <div class="analysis-block-icon">🔑</div>
+                                <div class="analysis-block-title">Acesso</div>
+                                <div class="analysis-block-status">Parcial</div>
+                            </div>
+                        </div>
+
+                        <!-- Documents Required -->
+                        <div class="analysis-docs">
+                            <h4 class="analysis-docs-title">📄 Documentos Necessários</h4>
+                            <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">
+                                Para liberar sua conta, envie os seguintes documentos:
+                            </p>
+                            <ul class="doc-checklist">
+                                <li>
+                                    <div class="doc-icon">🪪</div>
+                                    <div>
+                                        <div style="font-weight: 500;">Documento oficial com foto</div>
+                                        <div style="font-size: 12px; color: var(--text-muted);">RG, CNH ou Passaporte</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="doc-icon">🏠</div>
+                                    <div>
+                                        <div style="font-weight: 500;">Comprovante de residência</div>
+                                        <div style="font-size: 12px; color: var(--text-muted);">Últimos 3 meses</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="doc-icon">💰</div>
+                                    <div>
+                                        <div style="font-weight: 500;">Comprovante de origem dos fundos</div>
+                                        <div style="font-size: 12px; color: var(--text-muted);">Holerite, extrato bancário ou declaração</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="doc-icon">🤳</div>
+                                    <div>
+                                        <div style="font-weight: 500;">Selfie com documento</div>
+                                        <div style="font-size: 12px; color: var(--text-muted);">Foto segurando o documento ao lado do rosto</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Upload Area -->
+                        <div id="upload-section">
+                            <div class="upload-area" id="upload-area" onclick="triggerUpload()">
+                                <div class="upload-icon">📤</div>
+                                <div class="upload-text">
+                                    <strong>Clique para enviar documentos</strong><br>
+                                    <span style="font-size: 12px;">ou arraste os arquivos aqui</span>
+                                </div>
+                                <input type="file" id="file-input" style="display: none;" multiple accept=".pdf,.jpg,.jpeg,.png" onchange="handleUpload()">
+                            </div>
+
+                            <div class="progress-bar" id="progress-bar">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+
+                            <div class="upload-success" id="upload-success">
+                                ✅ Documentação enviada — Aguardando validação
+                            </div>
+
+                            <button class="btn btn-primary btn-block" id="upload-btn" onclick="submitDocuments()" style="display: none;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                Enviar Documentos
+                            </button>
+                        </div>
+
+                        <!-- Already Submitted -->
+                        <div id="already-submitted" style="display: none;">
+                            <div style="background: rgba(38, 161, 123, 0.1); border: 1px solid rgba(38, 161, 123, 0.3); border-radius: var(--radius-md); padding: 24px; text-align: center;">
+                                <div style="font-size: 48px; margin-bottom: 16px;">✅</div>
+                                <h4 style="color: var(--accent-secondary); margin-bottom: 8px;">Documentação Enviada</h4>
+                                <p style="color: var(--text-secondary); font-size: 14px;">
+                                    Seus documentos foram enviados com sucesso!<br>
+                                    Nossa equipe está analisando. Prazo: 24-48 horas úteis.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Support -->
+                    <div class="card" style="margin-top: 24px;">
+                        <div class="card-header">
+                            <h3 class="card-title">💬 Precisa de Ajuda?</h3>
+                        </div>
+                        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">
+                            Se você tiver dúvidas sobre o processo de verificação, nossa equipe de suporte está disponível 24/7.
+                        </p>
+                        <div style="display: flex; gap: 12px;">
+                            <button class="btn btn-secondary" onclick="openSupport('email')">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                Email
+                            </button>
+                            <button class="btn btn-secondary" onclick="openSupport('chat')">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                Chat ao Vivo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        let currentUser = null;
+        let filesUploaded = false;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            currentUser = BrazaCrypto.requireAuth();
+            if (!currentUser) return;
+
+            // Verificar se é conta em análise
+            if (currentUser.status !== 'analysis') {
+                window.location.href = 'dashboard.html';
+                return;
+            }
+
+            updateUserInfo(currentUser);
+            checkUploadStatus();
+        });
+
+        function updateUserInfo(user) {
+            document.getElementById('user-name').textContent = user.name || 'Usuário';
+            document.getElementById('user-email').textContent = user.email;
+            document.getElementById('user-avatar').textContent = (user.name || user.email)[0].toUpperCase();
+        }
+
+        function checkUploadStatus() {
+            const uploadStatus = BrazaCrypto.getStorage('brazacripto_upload_status');
+            if (uploadStatus && uploadStatus[currentUser.id]) {
+                showUploadedState();
+            }
+        }
+
+        function showUploadedState() {
+            document.getElementById('upload-section').style.display = 'none';
+            document.getElementById('already-submitted').style.display = 'block';
+        }
+
+        function showRestricted() {
+            BrazaCrypto.showNotification('Funcionalidade bloqueada durante a análise', 'error');
+        }
+
+        function triggerUpload() {
+            document.getElementById('file-input').click();
+        }
+
+        function handleUpload() {
+            const files = document.getElementById('file-input').files;
+            if (files.length > 0) {
+                document.getElementById('upload-btn').style.display = 'flex';
+                document.getElementById('upload-area').innerHTML = `
+                    <div class="upload-icon">📎</div>
+                    <div class="upload-text">
+                        <strong>${files.length} arquivo(s) selecionado(s)</strong><br>
+                        <span style="font-size: 12px;">Clique para alterar</span>
+                    </div>
+                `;
+            }
+        }
+
+        function submitDocuments() {
+            const progressBar = document.getElementById('progress-bar');
+            const progressFill = document.getElementById('progress-fill');
+            const uploadBtn = document.getElementById('upload-btn');
+            const uploadSuccess = document.getElementById('upload-success');
+
+            progressBar.classList.add('show');
+            uploadBtn.disabled = true;
+
+            // Simular upload com progresso
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+
+                    setTimeout(() => {
+                        progressBar.classList.remove('show');
+                        uploadSuccess.classList.add('show');
+
+                        // Salvar status no LocalStorage
+                        const uploadStatus = BrazaCrypto.getStorage('brazacripto_upload_status', {});
+                        uploadStatus[currentUser.id] = {
+                            uploadedAt: new Date().toISOString(),
+                            status: 'pending'
+                        };
+                        BrazaCrypto.setStorage('brazacripto_upload_status', uploadStatus);
+
+                        BrazaCrypto.showNotification('Documentos enviados com sucesso!', 'success');
+
+                        setTimeout(() => {
+                            showUploadedState();
+                        }, 2000);
+                    }, 500);
+                }
+                progressFill.style.width = `${progress}%`;
+            }, 200);
+        }
+
+        function openSupport(type) {
+            if (type === 'email') {
+                window.location.href = 'mailto:suporte@brazacripto.com?subject=Conta em Análise - ' + currentUser.email;
+            } else {
+                BrazaCrypto.showNotification('Chat em breve disponível!', 'success');
+            }
+        }
+
+        function handleLogout() {
+            BrazaCrypto.logout();
+        }
+    </script>
+</body>
+</html>

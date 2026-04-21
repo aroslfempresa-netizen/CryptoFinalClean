@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrazaCripto - Sacar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <div class="logo-icon">B</div>
+                    <span class="logo-text">BrazaCripto</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">Principal</span>
+                    <a href="dashboard.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        Dashboard
+                    </a>
+                    <a href="carteira.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+                            <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+                            <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+                        </svg>
+                        Carteira
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Operações</span>
+                    <a href="depositar.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 7l-5-5-5 5"/>
+                        </svg>
+                        Depositar
+                    </a>
+                    <a href="sacar.html" class="nav-item active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22V2M17 17l-5 5-5-5"/>
+                        </svg>
+                        Sacar
+                    </a>
+                    <a href="historico.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Histórico
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Conta</span>
+                    <a href="configuracoes.html" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                        Configurações
+                    </a>
+                    <a href="#" onclick="handleLogout()" class="nav-item logout">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        Sair
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="user-avatar">B</div>
+                    <div class="user-details">
+                        <div class="user-name" id="user-name">Usuário</div>
+                        <div class="user-email" id="user-email">email@email.com</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Sacar</h1>
+                <p class="page-subtitle">Envie criptomoedas para carteiras externas</p>
+            </header>
+
+            <div class="page-content">
+                <!-- Account Blocked Warning -->
+                <div id="blocked-warning" style="display: none;">
+                    <div class="card" style="border-color: var(--accent-danger); background: rgba(239, 68, 68, 0.1);">
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <span style="font-size: 48px;">🚫</span>
+                            <div>
+                                <h3 style="color: var(--accent-danger); margin-bottom: 8px;">Saques Bloqueados</h3>
+                                <p style="color: var(--text-secondary);">Sua conta está em análise. Saques temporariamente bloqueados.</p>
+                                <a href="analise.html" class="btn btn-secondary" style="margin-top: 16px;">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Withdraw Form -->
+                <div id="withdraw-form-container">
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">💸 Novo Saque</h3>
+                            </div>
+
+                            <form id="withdraw-form" onsubmit="handleWithdraw(event)">
+                                <div class="form-group">
+                                    <label class="form-label">Selecione a Moeda</label>
+                                    <select class="form-input form-select" id="withdraw-coin" onchange="updateWithdrawInfo()" required>
+                                        <option value="">Escolha uma moeda</option>
+                                        <option value="USDT">USDT - Tether</option>
+                                        <option value="TRX">TRX - TRON</option>
+                                        <option value="BTC">BTC - Bitcoin</option>
+                                    </select>
+                                    <div style="font-size: 12px; color: var(--text-muted); margin-top: 8px;" id="available-balance">Disponível: 0,00</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Rede</label>
+                                    <select class="form-input form-select" id="withdraw-network" required>
+                                        <option value="">Selecione a rede</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Endereço de Destino</label>
+                                    <input type="text" class="form-input" id="withdraw-address" placeholder="Cole o endereço da carteira" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Valor do Saque</label>
+                                    <input type="number" class="form-input" id="withdraw-amount" placeholder="0.00" step="0.00000001" min="0.00000001" required>
+                                    <div style="display: flex; justify-content: space-between; margin-top: 8px;">
+                                        <span style="font-size: 12px; color: var(--text-muted);" id="withdraw-brl-value">≈ R$ 0,00</span>
+                                        <button type="button" style="font-size: 12px; color: var(--accent-primary); background: none; border: none; cursor: pointer;" onclick="setMaxAmount()">MAX</button>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Taxa de Rede</label>
+                                    <div style="padding: 12px; background: var(--bg-tertiary); border-radius: var(--radius-md);">
+                                        <div style="display: flex; justify-content: space-between;">
+                                            <span style="color: var(--text-muted);">Taxa estimada</span>
+                                            <span id="withdraw-fee">0.00 USDT</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="padding: 12px; background: var(--bg-tertiary); border-radius: var(--radius-md); margin-bottom: 20px;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                        <span style="color: var(--text-muted);">Você enviará</span>
+                                        <span id="withdraw-send">0.00 USDT</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; font-weight: 600;">
+                                        <span>Total</span>
+                                        <span id="withdraw-total">0.00 USDT</span>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 22V2M17 17l-5 5-5-5"/>
+                                    </svg>
+                                    Confirmar Saque
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">ℹ️ Informações</h3>
+                            </div>
+
+                            <div style="padding: 16px; background: var(--bg-tertiary); border-radius: var(--radius-md); margin-bottom: 16px;">
+                                <h4 style="font-size: 14px; margin-bottom: 12px;">⚠️ Importante</h4>
+                                <ul style="font-size: 13px; color: var(--text-secondary); list-style: none; padding: 0;">
+                                    <li style="margin-bottom: 8px;">✓ Verifique o endereço antes de confirmar</li>
+                                    <li style="margin-bottom: 8px;">✓ Transações são irreversíveis</li>
+                                    <li style="margin-bottom: 8px;">✓ Use a rede correta para sua moeda</li>
+                                    <li style="margin-bottom: 8px;">✓ Saques são processados em até 30 minutos</li>
+                                </ul>
+                            </div>
+
+                            <div style="padding: 16px; background: var(--bg-tertiary); border-radius: var(--radius-md);">
+                                <h4 style="font-size: 14px; margin-bottom: 12px;">📊 Limites de Saque</h4>
+                                <div style="font-size: 13px;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                        <span style="color: var(--text-muted);">Mínimo</span>
+                                        <span id="min-withdraw">10 USDT</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                        <span style="color: var(--text-muted);">Diário</span>
+                                        <span>100.000 USDT</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span style="color: var(--text-muted);">Mensal</span>
+                                        <span>1.000.000 USDT</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Withdraws -->
+                <div class="card" style="margin-top: 32px;">
+                    <div class="card-header">
+                        <h3 class="card-title">📋 Saques Recentes</h3>
+                    </div>
+
+                    <div id="recent-withdraws">
+                        <div class="empty-state">
+                            <div class="empty-icon">📭</div>
+                            <div class="empty-title">Nenhum saque ainda</div>
+                            <div class="empty-desc">Seus saques aparecerão aqui</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        const networks = {
+            USDT: ['TRC-20 (TRON)', 'ERC-20 (Ethereum)', 'BEP-20 (BSC)'],
+            TRX: ['TRON'],
+            BTC: ['Bitcoin', 'Lightning Network']
+        };
+
+        const fees = {
+            USDT: { 'TRC-20 (TRON)': 1, 'ERC-20 (Ethereum)': 5, 'BEP-20 (BSC)': 0.5 },
+            TRX: { 'TRON': 1 },
+            BTC: { 'Bitcoin': 0.0001, 'Lightning Network': 0.00001 }
+        };
+
+        const minWithdraw = {
+            USDT: 10,
+            TRX: 50,
+            BTC: 0.001
+        };
+
+        const prices = {
+            USDT: 5.12,
+            TRX: 0.82,
+            BTC: 342567.89
+        };
+
+        let currentUser = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            currentUser = BrazaCrypto.requireAuth();
+            if (!currentUser) return;
+
+            if (currentUser.status === 'analysis') {
+                document.getElementById('blocked-warning').style.display = 'block';
+                document.getElementById('withdraw-form-container').style.display = 'none';
+            }
+
+            updateUserInfo(currentUser);
+            loadRecentWithdraws();
+
+            document.getElementById('withdraw-amount').addEventListener('input', calculateValues);
+        });
+
+        function updateUserInfo(user) {
+            document.getElementById('user-name').textContent = user.name || 'Usuário';
+            document.getElementById('user-email').textContent = user.email;
+            document.getElementById('user-avatar').textContent = (user.name || user.email)[0].toUpperCase();
+        }
+
+        function updateWithdrawInfo() {
+            const coin = document.getElementById('withdraw-coin').value;
+            const networkSelect = document.getElementById('withdraw-network');
+            const balance = BrazaCrypto.getBalance(coin);
+
+            // Update available balance
+            document.getElementById('available-balance').textContent = 
+                `Disponível: ${BrazaCrypto.formatCrypto(balance, coin === 'BTC' ? 8 : 2)} ${coin}`;
+
+            // Update network options
+            networkSelect.innerHTML = '<option value="">Selecione a rede</option>';
+            if (coin && networks[coin]) {
+                networks[coin].forEach(network => {
+                    networkSelect.innerHTML += `<option value="${network}">${network}</option>`;
+                });
+            }
+
+            // Update min withdraw
+            document.getElementById('min-withdraw').textContent = `${minWithdraw[coin] || 10} ${coin}`;
+
+            calculateValues();
+        }
+
+        function calculateValues() {
+            const coin = document.getElementById('withdraw-coin').value;
+            const network = document.getElementById('withdraw-network').value;
+            const amount = parseFloat(document.getElementById('withdraw-amount').value) || 0;
+
+            if (!coin) return;
+
+            const fee = network && fees[coin] ? (fees[coin][network] || 0) : 0;
+            const total = amount + fee;
+            const brlValue = amount * (prices[coin] || 0);
+
+            document.getElementById('withdraw-fee').textContent = 
+                `${BrazaCrypto.formatCrypto(fee, coin === 'BTC' ? 8 : 2)} ${coin}`;
+            document.getElementById('withdraw-send').textContent = 
+                `${BrazaCrypto.formatCrypto(amount, coin === 'BTC' ? 8 : 2)} ${coin}`;
+            document.getElementById('withdraw-total').textContent = 
+                `${BrazaCrypto.formatCrypto(total, coin === 'BTC' ? 8 : 2)} ${coin}`;
+            document.getElementById('withdraw-brl-value').textContent = 
+                `≈ R$ ${BrazaCrypto.formatCurrency(brlValue, 2)}`;
+        }
+
+        function setMaxAmount() {
+            const coin = document.getElementById('withdraw-coin').value;
+            const network = document.getElementById('withdraw-network').value;
+            
+            if (!coin) return;
+
+            const balance = BrazaCrypto.getBalance(coin);
+            const fee = network && fees[coin] ? (fees[coin][network] || 0) : 0;
+            const maxAmount = Math.max(0, balance - fee);
+
+            document.getElementById('withdraw-amount').value = maxAmount;
+            calculateValues();
+        }
+
+        function handleWithdraw(event) {
+            event.preventDefault();
+
+            const coin = document.getElementById('withdraw-coin').value;
+            const network = document.getElementById('withdraw-network').value;
+            const address = document.getElementById('withdraw-address').value;
+            const amount = parseFloat(document.getElementById('withdraw-amount').value);
+
+            if (!coin || !network || !address || amount <= 0) {
+                BrazaCrypto.showNotification('Preencha todos os campos corretamente', 'error');
+                return;
+            }
+
+            const balance = BrazaCrypto.getBalance(coin);
+            const fee = fees[coin][network] || 0;
+            const total = amount + fee;
+
+            if (total > balance) {
+                BrazaCrypto.showNotification('Saldo insuficiente', 'error');
+                return;
+            }
+
+            if (amount < minWithdraw[coin]) {
+                BrazaCrypto.showNotification(`Valor mínimo de saque: ${minWithdraw[coin]} ${coin}`, 'error');
+                return;
+            }
+
+            BrazaCrypto.showLoading(true);
+
+            setTimeout(() => {
+                // Deduzir saldo
+                BrazaCrypto.updateBalance(coin, total, 'subtract');
+
+                // Registrar transação como pendente
+                const transaction = BrazaCrypto.addTransaction({
+                    userId: currentUser.id,
+                    type: 'withdraw',
+                    coin: coin,
+                    amount: amount,
+                    fee: fee,
+                    brlValue: amount * prices[coin],
+                    status: 'pending',
+                    address: address,
+                    network: network
+                });
+
+                BrazaCrypto.showLoading(false);
+                BrazaCrypto.showNotification('Saque solicitado com sucesso! Status: Pendente', 'success');
+
+                // Simular confirmação após 2 minutos (120000ms)
+                setTimeout(() => {
+                    BrazaCrypto.updateTransactionStatus(transaction.id, 'confirmed');
+                    BrazaCrypto.showNotification('Saque confirmado!', 'success');
+                }, 120000);
+
+                // Reset form
+                document.getElementById('withdraw-form').reset();
+                
+                setTimeout(() => location.reload(), 1500);
+            }, 2000);
+        }
+
+        function loadRecentWithdraws() {
+            const transactions = BrazaCrypto.getTransactions(currentUser.id)
+                .filter(t => t.type === 'withdraw')
+                .slice(0, 5);
+
+            const container = document.getElementById('recent-withdraws');
+
+            if (transactions.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">📭</div>
+                        <div class="empty-title">Nenhum saque ainda</div>
+                        <div class="empty-desc">Seus saques aparecerão aqui</div>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            transactions.forEach(tx => {
+                const statusBadge = tx.status === 'confirmed' 
+                    ? '<span class="badge badge-success">Confirmado</span>'
+                    : '<span class="badge badge-warning">Pendente</span>';
+
+                html += `
+                    <div class="history-item">
+                        <div class="history-icon withdraw">📤</div>
+                        <div class="history-details">
+                            <div class="history-type">Saque de ${tx.coin}</div>
+                            <div class="history-date">${BrazaCrypto.formatDate(tx.createdAt)}</div>
+                        </div>
+                        <div class="history-amount">
+                            <div class="history-value" style="color: var(--accent-danger);">- ${BrazaCrypto.formatCrypto(tx.amount, tx.coin === 'BTC' ? 8 : 2)} ${tx.coin}</div>
+                            ${statusBadge}
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function handleLogout() {
+            BrazaCrypto.logout();
+        }
+    </script>
+</body>
+</html>
